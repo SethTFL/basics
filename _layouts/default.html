@@ -1,0 +1,36 @@
+---
+---
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            *
+            {
+                position:relative;
+            }
+            .Band
+            {
+                
+            }
+            .Center
+            {
+                max-width:1100px;
+                margin:0 auto;
+            }
+            .Pad
+            {
+                display:block;
+                padding:2rem;
+            }
+        </style>
+    </head>
+    <body>
+        {% include SectionTop.html class="Nav" %}
+            {% include Navigation.html %}
+        {% include SectionBottom.html %}
+        {{ content }}
+        {% include SectionTop.html class="Footer" %}
+            Footer
+        {% include SectionBottom.html %}
+    </body>
+</html>

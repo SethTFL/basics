@@ -1,0 +1,76 @@
+---
+speakers:
+
+  - &Alistair
+    name: Alistair Begg
+    title: Pastor & Author
+    photo: photo-alistair.jpg
+
+  - &Mohler
+    name: Albert Mohler
+    title: Pastor & Author
+    photo: photo-moheler.jpg
+
+
+years:
+  - year: 2017
+    title: Remind them of these things
+    speakers: [*Alistair, *Mohler]
+    description: |
+      Alistair Begg, along with guests Albert Mohler, President of Southern Baptist Theological Seminary in Louisville,
+      KY, and Sinclair Ferguson Professor at Redeemer Seminary in Dallas, TX and assistant minister at St. Peter’s
+      Free Church in Scotland remind pastors (and those involved in other areas of ministry) of His truth, that they
+      might be stirred up and encouraged to keep ministering.
+    cd: https://www.truthforlife.org/store/products/dvd-series/basics-2017-1/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520459913249.1520518656746.73&__hssc=219497862.2.1520518656746&__hsfp=3711357189
+    dvd: https://www.truthforlife.org/store/products/cd-series/basics-2017/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520459913249.1520518656746.73&__hssc=219497862.2.1520518656746&__hsfp=3711357189
+    mp3cd: https://www.truthforlife.org/store/products/mp3-cd-series/basics-2017-2/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520459913249.1520518656746.73&__hssc=219497862.2.1520518656746&__hsfp=3711357189
+    listen: https://www.truthforlife.org/resources/series/basics-2017/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520459913249.1520518656746.73&__hssc=219497862.2.1520518656746&__hsfp=3711357189
+    download: http://downloads.truthforlife.org/free_downloads/23517-basics2017.zip?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520459913249.1520518656746.73&__hssc=219497862.2.1520518656746&__hsfp=3711357189
+    talks:
+    - title: A Good Servant of Christ Jesus
+      speakers: [*Alistair]
+      scripture: 
+      stage: main
+      cd: https://www.truthforlife.org/store/products/cd-individual-messages/a-good-servant-of-christ-Jesus-Personal/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      dvd: https://www.truthforlife.org/store/products/dvd-individual-messages/a-good-servant-of-christ-Jesus-Personal-dvd/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      download: https://tflmedia.s3.amazonaws.com/free_downloads/3231-agoodservantofchristjesuspersonal.mp3
+      watch: https://tflmedia.s3.amazonaws.com/video/high/3231-agoodservantofchristjesuspersonal.mp4
+      slideshow: yep
+      description: | 
+        Ministers of Jesus Christ have a high calling which encompasses their personal lives as well as their public ministry.
+        In this message, Alistair Begg reminds pastors of important points from Paul’s first letter to Timothy. Before gospel
+        ministers can remind others of the truths of the faith, those same truths must first nourish their own souls.
+        Then, actively putting these truths into practice, they are to train themselves in godliness as they labor
+        with God’s help to proclaim the good news of salvation.
+    - title: A Core of Expository Preaching
+      speakers: [*Mohler]
+      scripture: 
+      stage: main
+      cd: https://www.truthforlife.org/store/products/cd-individual-messages/a-good-servant-of-christ-Jesus-Personal/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      dvd: https://www.truthforlife.org/store/products/dvd-individual-messages/a-good-servant-of-christ-Jesus-Personal-dvd/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      download: https://tflmedia.s3.amazonaws.com/free_downloads/3231-agoodservantofchristjesuspersonal.mp3
+      watch: https://tflmedia.s3.amazonaws.com/video/high/3231-agoodservantofchristjesuspersonal.mp4
+      slideshow:
+      description: | 
+        At its core, expository preaching follows a simple pattern: read the Word of God then explain the text to those listening,
+        as Ezra and his colleagues did in Nehemiah 8. In this message, Dr. Albert Mohler explains how the secularized culture around
+        us has made expository preaching vitally important today. When pastors read the Bible and explain the text, they convey
+        information that is not heard elsewhere—revealed truth in a society that opposes revelation. By following this biblical pattern,
+        ministers rely on the Holy Spirit to bring souls to Christ and the Lord Jesus gets all the glory.
+    - title: Sola Scriptura
+      speakers: [*Mohler]
+      scripture: 
+      stage: main
+      cd: https://www.truthforlife.org/store/products/cd-individual-messages/a-good-servant-of-christ-Jesus-Personal/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      dvd: https://www.truthforlife.org/store/products/dvd-individual-messages/a-good-servant-of-christ-Jesus-Personal-dvd/?__hstc=219497862.58c629d058d3f9557fcd1e55acee3f4f.1516033436344.1520433485625.1520446454861.69&__hssc=219497862.1.1520446454861&__hsfp=3711357189
+      download: https://tflmedia.s3.amazonaws.com/free_downloads/3231-agoodservantofchristjesuspersonal.mp3
+      watch: https://tflmedia.s3.amazonaws.com/video/high/3231-agoodservantofchristjesuspersonal.mp4
+      slideshow:
+      description: | 
+        Sola scriptura—the principle that God speaks only through the Scriptures—was foundational to the Reformation.
+        Dr. Albert Mohler draws helpful insights from Deuteronomy 4, emphasizing the wonderful fact that God allows
+        His creatures to hear His voice, and that the God Who spoke to Israel out of the fire still communicates to
+        His people when His Word is faithfully preached. Believers need to understand that we are bound by the
+        Word of our Creator Who speaks and reveals Himself not because we deserve it, but because of His great love.
+
+
