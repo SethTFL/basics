@@ -3,34 +3,78 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <style>
-            *
-            {
-                position:relative;
-            }
-            .Band
-            {
-                
-            }
-            .Center
-            {
-                max-width:1100px;
-                margin:0 auto;
-            }
-            .Pad
-            {
-                display:block;
-                padding:2rem;
-            }
-        </style>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+        <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="/files/site.css"/>
     </head>
     <body>
         {% include SectionTop.html class="Nav" %}
+            <a class="Link Home" href="/">
+                <img class="logo" src="https://www.basicsconference.org/wp-content/themes/basicsconference_org/dist/images/logomark-basics.svg" alt="2017 Basics Conference" width="63" height="63">
+            </a>
+            <a class="Link Menu" href="#menu">Menu <i class="icon-reorder"></i></a>
             {% include Navigation.html %}
+            <div class="Clear"></div>
         {% include SectionBottom.html %}
+
         {{ content }}
+
         {% include SectionTop.html class="Footer" %}
-            Footer
+            <p>
+                © 1994 - 2017 Truth For Life. All Rights Reserved.
+            </p>
         {% include SectionBottom.html %}
+
     </body>
+    <script>
+function hasClass(el, className) {
+    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+}
+function addClass(el, className) {
+    if (el.classList) el.classList.add(className);
+    else if (!hasClass(el, className)) el.className += ' ' + className;
+}
+function removeClass(el, className) {
+    if (el.classList) el.classList.remove(className);
+    else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+}
+
+function addEvent(el, type, handler) {
+    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+}
+function removeEvent(el, type, handler) {
+    if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+}
+    </script>
+    <!-- mobile nav -->
+    <script>
+        var MobileMenu;
+        MobileMenu = {
+        };
+        MobileMenu.ElementButton = document.querySelector(".Link.Menu");
+        MobileMenu.ElementBody = document.querySelector("body");
+        MobileMenu.CSSClass = "Menu";
+        MobileMenu.HandlerButton = function(inEvent)
+        {
+            inEvent.preventDefault();
+            inEvent.stopPropagation();
+
+            if(hasClass(MobileMenu.ElementBody, MobileMenu.CSSClass))
+            {
+                removeClass(MobileMenu.ElementBody, MobileMenu.CSSClass);
+                removeEvent(MobileMenu.ElementBody, "click", MobileMenu.HandlerBody);
+            }
+            else
+            {
+                addClass(MobileMenu.ElementBody, MobileMenu.CSSClass);
+                addEvent(MobileMenu.ElementBody, "click", MobileMenu.HandlerBody);
+            }
+        };
+        MobileMenu.HandlerBody = function(inEvent)
+        {
+            removeClass(MobileMenu.ElementBody, MobileMenu.CSSClass);
+        };
+        addEvent(MobileMenu.ElementButton, "click", MobileMenu.HandlerButton);
+
+    </script>
 </html>
