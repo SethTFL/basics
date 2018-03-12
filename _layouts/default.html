@@ -6,9 +6,10 @@
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="/files/site.css"/>
+        <title>{{page.title}}</title>
     </head>
-    <body>
-        {% include SectionTop.html class="Nav" %}
+    <body class="{{page.class}}">
+        {% include SectionTop.html class="Nav Transparent" %}
             <a class="Link Home" href="/">
                 <img class="logo" src="https://www.basicsconference.org/wp-content/themes/basicsconference_org/dist/images/logomark-basics.svg" alt="2017 Basics Conference" width="63" height="63">
             </a>
@@ -19,7 +20,7 @@
 
         {{ content }}
 
-        {% include SectionTop.html class="Footer" %}
+        {% include SectionTop.html class="Footer Transparent" %}
             <p>
                 © 1994 - 2017 Truth For Life. All Rights Reserved.
             </p>
@@ -27,24 +28,24 @@
 
     </body>
     <script>
-function hasClass(el, className) {
-    return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
-}
-function addClass(el, className) {
-    if (el.classList) el.classList.add(className);
-    else if (!hasClass(el, className)) el.className += ' ' + className;
-}
-function removeClass(el, className) {
-    if (el.classList) el.classList.remove(className);
-    else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
-}
+        function hasClass(el, className) {
+            return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
+        }
+        function addClass(el, className) {
+            if (el.classList) el.classList.add(className);
+            else if (!hasClass(el, className)) el.className += ' ' + className;
+        }
+        function removeClass(el, className) {
+            if (el.classList) el.classList.remove(className);
+            else el.className = el.className.replace(new RegExp('\\b'+ className+'\\b', 'g'), '');
+        }
 
-function addEvent(el, type, handler) {
-    if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
-}
-function removeEvent(el, type, handler) {
-    if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
-}
+        function addEvent(el, type, handler) {
+            if (el.attachEvent) el.attachEvent('on'+type, handler); else el.addEventListener(type, handler);
+        }
+        function removeEvent(el, type, handler) {
+            if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
+        }
     </script>
     <!-- mobile nav -->
     <script>
@@ -76,5 +77,37 @@ function removeEvent(el, type, handler) {
         };
         addEvent(MobileMenu.ElementButton, "click", MobileMenu.HandlerButton);
 
+    </script>
+    <!-- accordion -->
+    <script>
+        var i;
+        var Accordion;
+        Accordion = {};
+        Accordion.Elements = document.querySelectorAll(".Accordion");
+        Accordion.ElementActive = false;
+        Accordion.Request = function(inElement)
+        {
+            if(!hasClass(inElement, "Hidden"))
+            {
+                addClass(Accordion.ElementActive, "Hidden");
+                Accordion.ElementActive = false;
+                return;
+            }
+            if(Accordion.ElementActive)
+            {
+                addClass(Accordion.ElementActive, "Hidden");
+            }
+            Accordion.ElementActive = inElement;
+            removeClass(Accordion.ElementActive, "Hidden");
+        };
+        for(i=0; i<Accordion.Elements.length; i++)
+        {
+            addClass(Accordion.Elements[i], "Hidden");
+            addEvent(Accordion.Elements[i], "click", function(inEvent)
+            {
+                console.log("Activating:", inEvent.currentTarget);
+                Accordion.Request(inEvent.currentTarget);
+            });
+        }
     </script>
 </html>

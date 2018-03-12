@@ -1,11 +1,12 @@
 ---
+class: Archive
 ---
 
 {% include SectionTop.html Class="Archive" %}
 
 {% assign years = site.archive | sort:"year" | reverse %}
 {% for year in years %}
-    {% include Year.html year=year %}
+    {% include ArchiveYear.html year=year class="Accordion" %}
 {% endfor %}
 
 {% include SectionBottom.html %}
