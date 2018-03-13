@@ -3,31 +3,33 @@
         <h2>{{include.year.year}} | {{include.year.title}}</h2>
     </div>
     <div class="Content">
-        <div class="Overview">
-            <ul>
-                {% for speaker in include.year.speakers %}
-                <li>
-                    {{speaker}}
-                </li>
-                {% endfor %}
-            </ul>
-            <div>
-                {{include.year.description}}
+        <div class="Height">
+            <div class="Overview">
+                <ul>
+                    {% for speaker in include.year.speakers %}
+                    <li>
+                        {{speaker}}
+                    </li>
+                    {% endfor %}
+                </ul>
+                <div>
+                    {{include.year.description}}
+                </div>
             </div>
-        </div>
-        <div class="Sessions Main">
-            <ul>
-                {% for talk in include.year.sessions %}
-                {% include ArchiveTalk.html talk=talk %}
-                {% endfor %}
-            </ul>
-        </div>
-        <div class="Sessions Breakout">
-            <ul>
-                {% for talk in include.year.breakouts %}
-                {% include ArchiveTalk.html talk=talk %}
-                {% endfor %}
-            </ul>
+            <div class="Sessions Main">
+                <ul>
+                    {% for talk in include.year.sessions %}
+                    {% include ArchiveTalk.html talk=talk %}
+                    {% endfor %}
+                </ul>
+            </div>
+            <div class="Sessions Breakout">
+                <ul>
+                    {% for talk in include.year.breakouts %}
+                    {% include ArchiveTalk.html talk=talk %}
+                    {% endfor %}
+                </ul>
+            </div>
         </div>
     </div>
 </div>

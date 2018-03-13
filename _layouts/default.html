@@ -5,27 +5,29 @@
     <head>
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-        <link rel="stylesheet" type="text/css" href="/files/site.css"/>
+        <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/files/Styles.css"/>
         <title>{{page.title}}</title>
     </head>
     <body class="{{page.class}}">
+        <img class="Background Wide" src="{{site.baseurl}}/files/FillTexture.jpg"/>
+        <img class="Background Tall" src="{{site.baseurl}}/files/FillTexture.jpg"/>
         {% include SectionTop.html class="Nav Transparent" %}
-            <a class="Link Home" href="/">
-                <img class="logo" src="https://www.basicsconference.org/wp-content/themes/basicsconference_org/dist/images/logomark-basics.svg" alt="2017 Basics Conference" width="63" height="63">
+            <a class="Link Home" href="{{site.baseurl}}/">
+                <img class="logo" src="{{site.baseurl}}/files/LogoBasicsSmall.svg" alt="Basics Conference" width="63" height="63">
             </a>
             <a class="Link Menu" href="#menu">Menu <i class="icon-reorder"></i></a>
             {% include Navigation.html %}
             <div class="Clear"></div>
         {% include SectionBottom.html %}
-
         {{ content }}
-
         {% include SectionTop.html class="Footer Transparent" %}
             <p>
                 © 1994 - 2017 Truth For Life. All Rights Reserved.
             </p>
+            <p>
+                <img height="10" src="{{site.baseurl}}/files/LogoTruthForLife.svg"/> & <img height="10" src="{{site.baseurl}}/files/LogoParkside.png"/>
+            </p>
         {% include SectionBottom.html %}
-
     </body>
     <script>
         function hasClass(el, className) {
@@ -47,6 +49,7 @@
             if (el.detachEvent) el.detachEvent('on'+type, handler); else el.removeEventListener(type, handler);
         }
     </script>
+
     <!-- mobile nav -->
     <script>
         var MobileMenu;
@@ -99,6 +102,15 @@
             }
             Accordion.ElementActive = inElement;
             removeClass(Accordion.ElementActive, "Hidden");
+
+
+            var children;
+            var lastChild;
+            lastChild = inElement.querySelector(".Content").lastChild;
+            console.log(lastChild);
+            console.log("Height:", lastChild.offsetTop + lastChild.offsetHeight);
+
+
         };
         for(i=0; i<Accordion.Elements.length; i++)
         {

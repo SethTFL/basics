@@ -1,0 +1,11 @@
+---
+featured: ['Alistair-Begg', 'Christopher-Ash']
+---
+
+{% include SectionTop.html %}
+
+    {% for speaker in page.featured %}
+        {% include SpeakerFeatured.html speaker=speaker %}
+    {% endfor %}
+
+{% include SectionBottom.html %}
