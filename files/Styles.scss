@@ -3,6 +3,7 @@
 
 $ScreenLarge: 1100px;
 $ColorAccent1: #6fc2ca;
+$ColorAccent2: #efefef;
 
 /**** background images **************************/
 img.Background
@@ -90,7 +91,7 @@ img.Profile
     border-radius:50%;
 }
 
-/**** CTA buttons *************************************/
+/**** CTA buttons ****************************************/
 a.Action, input[type='submit']
 {
     transition: border-color 0.4s;
@@ -354,6 +355,7 @@ body.Menu .Band.Nav ul.Navigation > li
     ul
     {
         overflow:hidden;
+        padding:0;
     }
     li
     {
@@ -386,7 +388,7 @@ dl.Blocks
     }
     a
     {
-        background:#fff;
+        background: $ColorAccent2;
         border-radius:10px;
         color:#333;    
         text-decoration:none;
@@ -397,39 +399,30 @@ dl.Blocks
         color:#fff;
     }
 }
+
 .Accordion
 {
+    margin-bottom:4px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0px 2px 8px #888;
+
     .Title
     {
         padding:0.5rem 0.5rem 0.5rem 3rem;
         cursor:pointer;
-        background:#efefef;
+        background: $ColorAccent2;
 
         .Icon
         {
             position:absolute;
             top:0.8rem;
             left:1rem;
+
+            color:$ColorAccent1;
+            font-weight:bolder;
+            font-size:20px;
         }
-        .Icon.icon-angle-down
-        {
-            display:none;
-        }
-    }
-    .Title h2
-    {
-        margin:0;
-    }
-    .Content
-    {
-        overflow: hidden;
-        transition: height 0.4s;
-    }
-}
-.Accordion.Hidden
-{
-    .Title
-    {
         .Icon.icon-angle-up
         {
             display:none;
@@ -439,5 +432,39 @@ dl.Blocks
             display:block;
         }
     }
-
+    .Title h2
+    {
+        margin:0;
+    }
+    .Height
+    {
+        padding:2rem;
+        border:2px solid $ColorAccent1;
+    }
+}
+.Accordion.Open
+{
+    .Title
+    {
+        .Icon.icon-angle-up
+        {
+            display:block;
+        }
+        .Icon.icon-angle-down
+        {
+            display:none;
+        }
+    }
+}
+.Accordion.Open, .Accordion:hover
+{
+    .Title
+    {
+        background: $ColorAccent1;
+        
+        *
+        {
+            color:#fff;
+        }
+    }
 }

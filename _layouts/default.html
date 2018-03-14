@@ -90,53 +90,143 @@
 
     <!-- accordion -->
     <script>
-        var i;
         var Accordion;
         Accordion = {};
-        Accordion.Elements = document.querySelectorAll(".Accordion");
+        Accordion.Elements = false;
         Accordion.ElementActive = false;
-        Accordion.Open = function(inElement)
+        Accordion.Init = function()
         {
-            inElement.IsOpen = true;
-            removeClass(inElement, "Hidden");
-            var clip = inElement.querySelector(".Content");
-            var height = inElement.querySelector(".Height");
-            clip.style.height = height.offsetHeight+"px";
+            var i;
+            var panel;
+            Accordion.Elements = document.querySelectorAll(".Accordion");
+            for(i=0; i<Accordion.Elements.length; i++)
+            {
+                panel = Accordion.Panel(Accordion.Elements[i]);
+                panel.Panel.Methods.Close(true);
+                panel.Panel.Handlers.Click = function(inElement)
+                {
+                    Accordion.Request(inElement);
+                };
+            }
         };
-        Accordion.Close = function(inElement)
+        Accordion.Panel = function(inElement)
         {
-            inElement.IsOpen = false;
-            addClass(inElement, "Hidden");
-            var clip = inElement.querySelector(".Content");
-            clip.style.height = "0px";
-        };
+            inElement.Panel = {
+                Goal: {
+                    Timer:false,
+                    Count:0,
+                    Duration:20,
+                    Start:0,
+                    Stop:0,
+                    Value:0,
+                    InTransition:false,
+                    Open:false
+                },
+                Members: {
+                    Content: inElement.querySelector(".Content"),
+                    Height: inElement.querySelector(".Height"),
+                    Title: inElement.querySelector(".Title")
+                },
+                Handlers: {
+                    Click:function(inElement)
+                    {
+                    },
+                    Update:function(inFirstTime)
+                    {
+                        var time;
+                        var value;
+
+                        if(inFirstTime)
+                        {
+                            removeClass(inElement, "Done");
+                            if(inElement.Panel.Goal.Open)
+                            {
+                                addClass(inElement, "Open");
+                            }
+                            else
+                            {
+                                removeClass(inElement, "Open");
+                            }
+                        }
+
+                        time = inElement.Panel.Goal.Count / inElement.Panel.Goal.Duration;
+                        inElement.Panel.Goal.Value = inElement.Panel.Goal.Start + time*(inElement.Panel.Goal.Stop-inElement.Panel.Goal.Start);
+                        inElement.Panel.Members.Content.style.height = parseInt(inElement.Panel.Goal.Value)+"px";
+                        inElement.Panel.Goal.Count++;
+
+                        if( inElement.Panel.Goal.Count > inElement.Panel.Goal.Duration )
+                        {
+                            inElement.Panel.Goal.InTransition = false;
+                            addClass(inElement, "Done");
+                            if(inElement.Panel.Goal.Open)
+                            {
+                                inElement.Panel.Members.Content.style.height = "auto";
+                            }
+                        }
+                        else
+                        {
+                            inElement.Panel.Goal.InTransition = true;
+                            inElement.Panel.Goal.Timer = setTimeout(inElement.Panel.Handlers.Update, 17);
+                        }
+                    }
+                },
+                Methods:{
+                    Open: function(inForce)
+                    {
+                        inElement.Panel.Goal.Open = true;
+                        inElement.Panel.Goal.Start = inElement.Panel.Goal.Value;
+                        inElement.Panel.Goal.Stop = inElement.Panel.Members.Height.offsetHeight;
+                        if(inForce)
+                        {
+                            inElement.Panel.Goal.Count = inElement.Panel.Goal.Duration;
+                        }
+                        else
+                        {
+                            inElement.Panel.Goal.Count = 0;
+                        }
+                        inElement.Panel.Handlers.Update(true);
+                    },
+                    Close: function(inForce)
+                    {
+                        inElement.Panel.Goal.Open = false;
+                        inElement.Panel.Goal.Start = inElement.Panel.Goal.Value;
+                        inElement.Panel.Goal.Stop = 0;
+                        if(inForce)
+                        {
+                            inElement.Panel.Goal.Count = inElement.Panel.Goal.Duration;
+                        }
+                        else
+                        {
+                            inElement.Panel.Goal.Count = 0;
+                        }
+                        inElement.Panel.Handlers.Update(true);
+                    }
+                }
+            };
+
+            inElement.Panel.Members.Content.style.overflow = "hidden";
+            addEvent(inElement.Panel.Members.Title, "click", function(inEvent)
+            {
+                inElement.Panel.Handlers.Click(inElement);
+            });
+
+            return inElement;
+        }
         Accordion.Request = function(inElement)
         {
-            if(inElement.IsOpen)
+            if(inElement.Panel.Goal.Open)
             {
-                Accordion.Close(inElement);
+                inElement.Panel.Methods.Close();
                 Accordion.ElementActive = false;
                 return;
             }
             if(Accordion.ElementActive)
             {
-                Accordion.Close(Accordion.ElementActive);
+                Accordion.ElementActive.Panel.Methods.Close();
             }
-
             Accordion.ElementActive = inElement;
-            Accordion.Open(Accordion.ElementActive);
+            Accordion.ElementActive.Panel.Methods.Open();
         };
-        for(i=0; i<Accordion.Elements.length; i++)
-        {
-            Accordion.Close(Accordion.Elements[i]);
-            addEvent(Accordion.Elements[i].querySelector(".Title"), "click", function(inEvent)
-            {
-                console.log("Activating:", inEvent.currentTarget.parentNode);
-                Accordion.Request(inEvent.currentTarget.parentNode);
-            });
-        }
-    </script>
-    <script>
-var test = document.querySelector(".Accordion .Content");
+        Accordion.Init();
     </script>
 </html>
