@@ -3,10 +3,14 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <title>Basics Conference {{page.title}}</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        
         <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
         <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{site.baseurl}}/files/Styles.css"/>
-        <title>{{page.title}}</title>
+        
     </head>
     <body class="{{page.class}}">
         <img class="Background Wide" src="{{site.baseurl}}/files/FillTexture.jpg"/>
@@ -29,6 +33,8 @@
             </p>
         {% include SectionBottom.html %}
     </body>
+
+    <!-- plainjs library -->
     <script>
         function hasClass(el, className) {
             return el.classList ? el.classList.contains(className) : new RegExp('\\b'+ className+'\\b').test(el.className);
@@ -81,6 +87,7 @@
         addEvent(MobileMenu.ElementButton, "click", MobileMenu.HandlerButton);
 
     </script>
+
     <!-- accordion -->
     <script>
         var i;
@@ -88,38 +95,48 @@
         Accordion = {};
         Accordion.Elements = document.querySelectorAll(".Accordion");
         Accordion.ElementActive = false;
+        Accordion.Open = function(inElement)
+        {
+            inElement.IsOpen = true;
+            removeClass(inElement, "Hidden");
+            var clip = inElement.querySelector(".Content");
+            var height = inElement.querySelector(".Height");
+            clip.style.height = height.offsetHeight+"px";
+        };
+        Accordion.Close = function(inElement)
+        {
+            inElement.IsOpen = false;
+            addClass(inElement, "Hidden");
+            var clip = inElement.querySelector(".Content");
+            clip.style.height = "0px";
+        };
         Accordion.Request = function(inElement)
         {
-            if(!hasClass(inElement, "Hidden"))
+            if(inElement.IsOpen)
             {
-                addClass(Accordion.ElementActive, "Hidden");
+                Accordion.Close(inElement);
                 Accordion.ElementActive = false;
                 return;
             }
             if(Accordion.ElementActive)
             {
-                addClass(Accordion.ElementActive, "Hidden");
+                Accordion.Close(Accordion.ElementActive);
             }
+
             Accordion.ElementActive = inElement;
-            removeClass(Accordion.ElementActive, "Hidden");
-
-
-            var children;
-            var lastChild;
-            lastChild = inElement.querySelector(".Content").lastChild;
-            console.log(lastChild);
-            console.log("Height:", lastChild.offsetTop + lastChild.offsetHeight);
-
-
+            Accordion.Open(Accordion.ElementActive);
         };
         for(i=0; i<Accordion.Elements.length; i++)
         {
-            addClass(Accordion.Elements[i], "Hidden");
-            addEvent(Accordion.Elements[i], "click", function(inEvent)
+            Accordion.Close(Accordion.Elements[i]);
+            addEvent(Accordion.Elements[i].querySelector(".Title"), "click", function(inEvent)
             {
-                console.log("Activating:", inEvent.currentTarget);
-                Accordion.Request(inEvent.currentTarget);
+                console.log("Activating:", inEvent.currentTarget.parentNode);
+                Accordion.Request(inEvent.currentTarget.parentNode);
             });
         }
+    </script>
+    <script>
+var test = document.querySelector(".Accordion .Content");
     </script>
 </html>

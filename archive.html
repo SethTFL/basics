@@ -1,8 +1,10 @@
 ---
-class: Archive
+title: Archive
 ---
 
 {% include SectionTop.html %}
+
+{% include TitleBar.html %}
 
 {% assign years = site.archive | sort:"year" | reverse %}
 {% for year in years %}

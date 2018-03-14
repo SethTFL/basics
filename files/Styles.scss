@@ -91,14 +91,18 @@ img.Profile
 }
 
 /**** CTA buttons *************************************/
-a.Action
+a.Action, input[type='submit']
 {
     transition: border-color 0.4s;
     display:block;
     padding:1rem 2rem 1rem 2rem;
     margin:5px;
     border:2px solid $ColorAccent1;
+
     border-radius:5px;
+    background:none;
+    cursor:pointer;
+
     color:#fff;
     font-size:1.2rem;
     text-align:center;
@@ -200,6 +204,56 @@ body.Menu .Band.Nav ul.Navigation > li
     padding-bottom:0.5em !important;
 }
 
+/**** hubspot form **************************************/
+.hbspt-form
+{
+    max-width:400px;
+    margin:0 auto;
+    padding:2rem;
+    background: rgba(0,0,0,.2);
+    border-radius:10px;
+
+    ul
+    {
+        margin-top:0;
+        padding:0;
+        list-style-type:none;
+        color:red;
+    }
+    .hs-form-required
+    {
+        color:red;
+    }
+    ul.hs_error_rollup
+    {
+        display:none !important;
+    }
+    a
+    {
+        color:#fff;
+    }
+    input[type='email']
+    {
+        width:100%;
+        padding:0.5rem 0 0.5rem 0;
+        border:none;
+        border-radius:5px;
+
+        color:#777;
+        text-align:center;
+        font-size:1.2rem;
+    }
+    input[type='email']::placeholder
+    {
+        color:#ddd;
+        font-weight:lighter;
+    }
+    input[type='submit']
+    {
+        width:100%;
+        margin:8px 0 0 0;
+    }
+}
 
 /**** home page speakers section ************************/
 .Band.Speakers
@@ -343,18 +397,47 @@ dl.Blocks
         color:#fff;
     }
 }
-
-.Accordion .Content
+.Accordion
 {
-    overflow: hidden;
-    transition: height .8s, padding .8s;
+    .Title
+    {
+        padding:0.5rem 0.5rem 0.5rem 3rem;
+        cursor:pointer;
+        background:#efefef;
 
-    background:#eee;
-    padding: 1rem 0 1rem 0;
+        .Icon
+        {
+            position:absolute;
+            top:0.8rem;
+            left:1rem;
+        }
+        .Icon.icon-angle-down
+        {
+            display:none;
+        }
+    }
+    .Title h2
+    {
+        margin:0;
+    }
+    .Content
+    {
+        overflow: hidden;
+        transition: height 0.4s;
+    }
 }
-.Accordion.Hidden .Content
+.Accordion.Hidden
 {
-    height: 0 !important;
-    padding-top: 0 !important;
-    padding-bottom: 0 !important;
+    .Title
+    {
+        .Icon.icon-angle-up
+        {
+            display:none;
+        }
+        .Icon.icon-angle-down
+        {
+            display:block;
+        }
+    }
+
 }

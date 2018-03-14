@@ -1,8 +1,11 @@
 ---
+title: Speakers
 featured: ['Alistair-Begg', 'Christopher-Ash']
 ---
 
 {% include SectionTop.html %}
+
+    {% include TitleBar.html %}
 
     {% for speaker in page.featured %}
         {% include SpeakerFeatured.html speaker=speaker %}
