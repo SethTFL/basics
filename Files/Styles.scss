@@ -1,0 +1,543 @@
+---
+---
+
+$ScreenLarge: 1100px;
+$ColorDark: #333;
+$ColorAccent1: #6fc2ca;
+$ColorAccent2: #efefef;
+
+/**** background images **************************/
+img.Background
+{
+    position:fixed;
+
+    &.Wide
+    {
+        width:100%;
+        height:auto;
+
+        @media(max-aspect-ratio: 1400/812)
+        {
+            display:none;
+        }
+    }
+    &.Tall
+    {
+        width:auto;
+        height:100%;
+
+        @media(min-aspect-ratio: 1400/812)
+        {
+            display:none;
+        }
+    }
+}
+
+/**** misc ***************************************/
+*
+{
+    position:relative;
+}
+body
+{
+    margin:0;
+    color: $ColorDark;
+    font-family:Open Sans;
+}
+.Fill
+{
+    display:block;
+    width:100%;
+    height:auto;
+}
+.Large
+{
+    font-size:140%;
+}
+
+.Pad
+{
+    display:block;
+    padding:2rem;
+    @media(max-width:$ScreenLarge)
+    {
+        padding:1rem;
+    }
+}
+.Clear
+{
+    display:block;
+    clear:both;
+}
+h1, h2, h3
+{
+    color: $ColorAccent1;
+    text-transform:lowercase;
+    font-family:Bookman Old Style,Bookman,Palatino,times,times new roman,serif;
+    line-height:1.1em;
+}
+h1
+{
+    font-size:3.2em;
+}
+img.Profile
+{
+    display:block;
+    width:100%;
+    max-width:200px;
+    height:auto;
+    margin:0 auto;
+
+    border-radius:50%;
+}
+
+/**** Layout ********************************************/
+.Band
+{
+    background:#fff;
+    
+    &.Transparent
+    {
+        background:none;
+    }
+    .Center
+    {
+        max-width:1100px;
+        margin:0 auto;
+    }
+}
+.Columns
+{
+    overflow:hidden;
+
+    .Column
+    {
+        width:30%;
+        float:left;
+        padding-bottom:1000px;
+        margin-bottom:-1000px;
+    }
+
+    &.T1 .Column
+    {
+        width:100%;
+    }
+    &.T2 .Column
+    {
+        width:50%;
+    }
+    &.T3 .Column
+    {
+        width:33.3%;
+    }
+    &.T4 .Column
+    {
+        width:25%;
+    }
+    &.T5 .Column
+    {
+        width:20%;
+    }
+
+    @media(max-width: $ScreenLarge)
+    {
+        & .Column
+        {
+            width:100% !important;
+        }
+    }
+}
+
+/**** CTA buttons ***************************************/
+a.Action, input[type='submit']
+{
+    transition: border-color 0.4s;
+    display:block;
+    padding:1rem 2rem 1rem 2rem;
+    margin:5px;
+    border:2px solid $ColorAccent1;
+
+    border-radius:5px;
+    background:none;
+    cursor:pointer;
+
+    color:#fff;
+    font-size:1.2rem;
+    text-align:center;
+    text-transform: uppercase;
+    text-decoration: none;
+
+    &:hover
+    {
+        border:2px solid #fff;
+    }
+
+    @media(min-width:$ScreenLarge)
+    {
+        display:inline-block;
+    }
+}
+
+/**** nav bar *******************************************/
+.Band.Nav
+{
+    .Link.Home
+    {
+        display:block;
+        float:left;
+    }
+    .Link.Menu
+    {
+        display:block;
+        float:right;
+        border-radius:8px;
+        padding:0.5em;
+        color:#fff;
+        text-decoration:none;
+        background:#333;
+    }
+    ul.Navigation
+    {
+        clear:both;
+        margin:0;
+        padding:0;
+
+        a
+        {
+            transition: color .3s;
+            color: $ColorAccent1;
+            text-decoration:none;
+            text-transform:lowercase;
+            font-size:20px;
+        }
+        a:hover
+        {
+            color:#fff;
+        }
+        li
+        {
+            overflow: hidden;
+            transition: height .4s, padding .4s;
+            height: 0 !important;
+            padding-top: 0 !important;
+            padding-bottom: 0 !important;
+        }
+    }
+
+    @media(min-width:$ScreenLarge)
+    {
+        .Link.Menu
+        {
+            display:none;
+        }
+        ul.Navigation
+        {
+            clear: none;
+            float:left;
+            margin-top: 12px;
+            margin-left: 20px;
+        }
+        ul.Navigation > li
+        {
+            display:block;
+            float:left;
+            padding:1em;
+
+            height: 1em !important;
+            padding-top:0.5em !important;
+            padding-bottom:0.5em !important;
+        }
+    }
+
+}
+body.Menu .Band.Nav
+{
+    background-color: rgba(0, 0, 0, 0.3);
+
+    ul.Navigation > li
+    {
+        display:block;
+        height: 1em !important;
+        padding-top:0.5em !important;
+        padding-bottom:0.5em !important;
+    }
+}
+
+/**** home page hubspot form **************************************/
+.hbspt-form
+{
+    max-width:400px;
+    margin:0 auto;
+    padding:2rem;
+    background: rgba(0,0,0,.2);
+    border-radius:10px;
+
+    ul
+    {
+        margin-top:0;
+        padding:0;
+        list-style-type:none;
+        color:red;
+    }
+    .hs-form-required
+    {
+        color:red;
+    }
+    ul.hs_error_rollup
+    {
+        display:none !important;
+    }
+    a
+    {
+        color:#fff;
+    }
+    input[type='email']
+    {
+        width:100%;
+        padding:0.5rem 0 0.5rem 0;
+        border:none;
+        border-radius:5px;
+
+        color:#777;
+        text-align:center;
+        font-size:1.2rem;
+    }
+    input[type='email']::placeholder
+    {
+        color:#ddd;
+        font-weight:lighter;
+    }
+    input[type='submit']
+    {
+        width:100%;
+        margin:8px 0 0 0;
+    }
+}
+
+/**** home page speakers section ************************/
+.Band.Speakers
+{
+    text-align:center;
+
+    h2
+    {
+        margin-top:0;
+        font-size:3rem;
+        color: $ColorDark;
+    }
+    .Columns
+    {
+        max-width:800px;
+        margin:0 auto;
+    }
+    strong
+    {
+        display:block;
+        margin-top:0.5rem;
+    }
+    em
+    {
+        color:$ColorAccent1;
+    }
+    .Divider
+    {
+        display:block;
+        width:100%;
+        height:1px;
+
+        margin:1rem 0 1rem 0;
+        background:#ddd;
+    }
+    .Last .Divider
+    {
+        display:none;
+    }
+    @media(min-width:$ScreenLarge)
+    {
+        .Divider
+        {
+            position:absolute;
+            top:0;
+            right:0;
+            width:1px;
+            height:80%;
+        }
+    }
+}
+
+/**** home page signup form******************************/
+.Band.Signup
+{
+    background: rgba(0,0,0, 0.2);
+
+    .Pad
+    {
+        color:#fff;
+        text-align:center;
+    }
+    h2
+    {
+        font-size:3em;
+    }
+}
+
+/**** footer ********************************************/
+.Band.Footer
+{
+    color: $ColorAccent1;
+}
+
+/**** archive *******************************************/
+.Overview
+{
+    h3
+    {
+        margin:0;
+        color:#333;
+        font-size:1.8em;
+    }
+}
+.Sessions
+{
+    padding:0;
+    list-style-type: none;
+
+    li
+    {
+        border-top:1px solid #ddd;
+    }
+    h4
+    {
+        margin:0;
+    }
+    i
+    {
+        position: absolute;
+        left: -5rem;
+        top:0;
+
+        color: $ColorAccent1;
+        font-size: 7rem;
+    }
+    .Description
+    {
+        margin-top:10px;
+        margin-bottom:10px;
+        font-size:0.8rem;
+    }
+}
+
+dl.Blocks
+{
+    margin:0;
+    padding:0;
+    overflow:hidden;
+    list-style-type:none;
+
+    & > *
+    {
+        float:left;
+        margin:0;
+    }
+    a, dt
+    {
+        display:block;
+        padding:0.5em;
+        margin:2px;
+        font-size:10px;
+    }
+    a
+    {
+        background: $ColorAccent2;
+        border-radius:10px;
+        color:#333;    
+        text-decoration:none;
+    }
+    a:hover
+    {
+        background: $ColorAccent1;
+        color:#fff;
+    }
+}
+dl.Blocks.Speakers
+{
+    dd span
+    {
+        display:block;
+        padding:0.5rem 0.5rem 0.5rem 0;
+        color: $ColorAccent1;
+        font-weight:bolder;
+    }
+}
+
+.Accordion
+{
+    margin-bottom:4px;
+    border-radius:5px;
+    overflow:hidden;
+    box-shadow:0px 2px 8px #888;
+
+    .Title
+    {
+        padding:0.5rem 0.5rem 0.5rem 3rem;
+        cursor:pointer;
+        background: $ColorAccent2;
+
+        .Icon
+        {
+            position:absolute;
+            top:0.8rem;
+            left:1rem;
+
+            color:$ColorAccent1;
+            font-weight:bolder;
+            font-size:20px;
+        }
+        .Icon.icon-angle-up
+        {
+            display:none;
+        }
+        .Icon.icon-angle-down
+        {
+            display:block;
+        }
+        h2
+        {
+            margin:0;
+        }
+    }
+    .Height
+    {
+        padding:2rem;
+        border:2px solid $ColorAccent1;
+    }
+
+    &.Open
+    {
+        .Title
+        {
+            .Icon.icon-angle-up
+            {
+                display:block;
+            }
+            .Icon.icon-angle-down
+            {
+                display:none;
+            }
+        }
+    }
+
+    &.Open, &:hover
+    {
+        .Title
+        {
+            background: $ColorAccent1;
+            
+            *
+            {
+                color:#fff;
+            }
+        }
+    }
+
+}
