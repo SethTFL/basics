@@ -32,7 +32,7 @@ img.Background
     }
 }
 
-/**** misc **************************************/
+/**** misc ***************************************/
 *
 {
     position:relative;
@@ -41,7 +41,7 @@ body
 {
     margin:0;
     font-family:Open Sans;
-    background: #062831 url({{site.baseurl}}/files/FillTexture.jpg) center top
+    background: #062831 url({{site.baseurl}}/Files/FillTexture.jpg) center top
 }
 .Fill
 {
@@ -53,19 +53,7 @@ body
 {
     font-size:140%;
 }
-.Band
-{
-    background:#fff;
-}
-.Band.Transparent
-{
-    background:none;
-}
-.Center
-{
-    max-width:1100px;
-    margin:0 auto;
-}
+
 .Pad
 {
     display:block;
@@ -91,7 +79,56 @@ img.Profile
     border-radius:50%;
 }
 
-/**** CTA buttons ****************************************/
+/**** Layout ********************************************/
+.Band
+{
+    background:#fff;
+    
+    &.Transparent
+    {
+        background:none;
+    }
+    .Center
+    {
+        max-width:1100px;
+        margin:0 auto;
+    }
+}
+.Columns
+{
+    overflow:hidden;
+
+    .Column
+    {
+        width:30%;
+        float:left;
+        padding-bottom:1000px;
+        margin-bottom:-1000px;
+    }
+
+    &.T1 .Column
+    {
+        width:100%;
+    }
+    &.T2 .Column
+    {
+        width:50%;
+    }
+    &.T3 .Column
+    {
+        width:33.3%;
+    }
+    &.T4 .Column
+    {
+        width:25%;
+    }
+    &.T5 .Column
+    {
+        width:20%;
+    }
+}
+
+/**** CTA buttons ***************************************/
 a.Action, input[type='submit']
 {
     transition: border-color 0.4s;
@@ -121,7 +158,7 @@ a.Action, input[type='submit']
     }
 }
 
-/**** nav bar ********************************************/
+/**** nav bar *******************************************/
 .Band.Nav
 {
     .Link.Home
@@ -196,13 +233,14 @@ a.Action, input[type='submit']
 body.Menu .Band.Nav
 {
     background-color: rgba(0, 0, 0, 0.3);
-}
-body.Menu .Band.Nav ul.Navigation > li
-{
-    display:block;
-    height: 1em !important;
-    padding-top:0.5em !important;
-    padding-bottom:0.5em !important;
+
+    ul.Navigation > li
+    {
+        display:block;
+        height: 1em !important;
+        padding-top:0.5em !important;
+        padding-bottom:0.5em !important;
+    }
 }
 
 /**** hubspot form **************************************/
@@ -431,40 +469,43 @@ dl.Blocks
         {
             display:block;
         }
-    }
-    .Title h2
-    {
-        margin:0;
+        h2
+        {
+            margin:0;
+        }
     }
     .Height
     {
         padding:2rem;
         border:2px solid $ColorAccent1;
     }
-}
-.Accordion.Open
-{
-    .Title
+
+    &.Open
     {
-        .Icon.icon-angle-up
+        .Title
         {
-            display:block;
-        }
-        .Icon.icon-angle-down
-        {
-            display:none;
+            .Icon.icon-angle-up
+            {
+                display:block;
+            }
+            .Icon.icon-angle-down
+            {
+                display:none;
+            }
         }
     }
-}
-.Accordion.Open, .Accordion:hover
-{
-    .Title
+
+    &.Open, &:hover
     {
-        background: $ColorAccent1;
-        
-        *
+        .Title
         {
-            color:#fff;
+            background: $ColorAccent1;
+            
+            *
+            {
+                color:#fff;
+            }
         }
     }
+
 }

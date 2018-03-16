@@ -3,7 +3,7 @@
 Alistair-Begg:
   name: Alistair Begg
   title: Pastor & Writer
-  photo: /files/SpeakerAlistairBegg.jpg
+  photo: /Files/SpeakerAlistairBegg.jpg
   organization: Parkside Church
   organization-role: Senior Pastor
   description: |
@@ -12,7 +12,7 @@ Alistair-Begg:
 Albert-Mohler:
   name: Albert Mohler
   title: Pastor & Writer
-  photo: /files/SpeakerAlbertMohler.jpg
+  photo: /Files/SpeakerAlbertMohler.jpg
   organization: Southern Baptist Theological Seminary
   organization-role: President
   description: |
@@ -21,7 +21,7 @@ Albert-Mohler:
 Christopher-Ash:
   name: Christopher Ash
   title: Pastor & Writer
-  photo: /files/SpeakerChristopherAsh.jpg
+  photo: /Files/SpeakerChristopherAsh.jpg
   organization: Southern Baptist Theological Seminary
   organization-role: President
   description: |

@@ -1,14 +1,20 @@
 ---
 title: Speakers
-featured: ['Alistair-Begg', 'Christopher-Ash']
+featured: ['Alistair-Begg', 'Christopher-Ash', 'Albert-Mohler']
 ---
 
 {% include SectionTop.html %}
 
     {% include TitleBar.html %}
 
+    <div class="Columns T{{page.featured.size}}">
     {% for speaker in page.featured %}
-        {% include SpeakerFeatured.html speaker=speaker %}
+        <div class="Column C{{forloop.index}}{% if forloop.first %} First{% endif %}{% if forloop.last %} Last{% endif %}">
+            <div class="Pad">
+                {% include SpeakerFeatured.html speaker=speaker %}
+            </div>
+        </div>
     {% endfor %}
+    </div>
 
 {% include SectionBottom.html %}
