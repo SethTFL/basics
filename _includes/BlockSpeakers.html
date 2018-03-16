@@ -1,0 +1,9 @@
+{% if include.talk.speakers %}
+<dl class="Blocks Speakers">
+    {% for speaker in include.talk.speakers %}
+    <dd>
+        <span>{{site.data.Speakers[speaker].name}}</span>
+    </dd>
+    {% endfor %}
+</dl>
+{% endif %}

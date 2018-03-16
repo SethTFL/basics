@@ -18,36 +18,28 @@ title: Home
 
 {% include SectionTop.html class="Speakers" %}
     <h2>Speakers</h2>
-    <p class="Lead">
+    <p class="Large">
         Alistair has invited Christopher Ash and Tim Savage to join him for the 2018 Basics Conference, which will take place May 7-9, 2018 at Parkside Church in
         Chagrin&nbsp;Falls,&nbsp;OH. Go back and listen to previous years in the
         <a href="{{site.baseurl}}/archive">archive</a>.
     </p>
-    <ul>
-        <li>
-            <img class="Fill" alt="Christopher Ash" src="{{site.baseurl}}/Files/SpeakerChristopherAsh.jpg" />
-            <strong>Christopher Ash</strong>
-            <span>Pastor & Writer</span>
-            <div class="Divider"></div>
-        </li>
-        <li>
-            <img class="Fill" alt="Tim Savage" src="{{site.baseurl}}/Files/SpeakerTimSavage.jpg" />
-            <strong>Tim Savage</strong>
-            <span>Pastor & Writer</span>
-            <div class="Divider"></div>
-        </li>
-        <li>
-            <img class="Fill" alt="Alistair Begg" src="{{site.baseurl}}/Files/SpeakerAlistairBegg.jpg" />
-            <strong>Alistair Begg</strong>
-            <span>Pastor & Writer</span>
-        </li>
-    </ul>
+    <div class="Columns T3">
+        <div class="Column C1 First">
+            {% include SpeakerFeaturedLight.html speaker="Christopher-Ash" %}
+        </div>
+        <div class="Column C2">
+            {% include SpeakerFeaturedLight.html speaker="Tim-Savage" %}
+        </div>
+        <div class="Column C3 Last">
+            {% include SpeakerFeaturedLight.html speaker="Alistair-Begg" %}
+        </div>
+    </div>
 {% include SectionBottom.html %}
 
 
 {% include SectionTop.html class="Signup Transparent" %}
     <h2>Stay Informed</h2>
-    <p class="Lead">
+    <p class="Large">
         If you’d like an email reminder notifying you when the conference is about to begin, enter your email address below and click “Stay Informed!”.
     </p>
     <!--[if lte IE 8]> <script charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2-legacy.js"></script><![endif]-->

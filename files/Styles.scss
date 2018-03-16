@@ -2,6 +2,7 @@
 ---
 
 $ScreenLarge: 1100px;
+$ColorDark: #333;
 $ColorAccent1: #6fc2ca;
 $ColorAccent2: #efefef;
 
@@ -40,8 +41,8 @@ img.Background
 body
 {
     margin:0;
+    color: $ColorDark;
     font-family:Open Sans;
-    background: #062831 url({{site.baseurl}}/Files/FillTexture.jpg) center top
 }
 .Fill
 {
@@ -49,7 +50,7 @@ body
     width:100%;
     height:auto;
 }
-.Lead
+.Large
 {
     font-size:140%;
 }
@@ -58,6 +59,10 @@ body
 {
     display:block;
     padding:2rem;
+    @media(max-width:$ScreenLarge)
+    {
+        padding:1rem;
+    }
 }
 .Clear
 {
@@ -69,6 +74,7 @@ h1, h2, h3
     color: $ColorAccent1;
     text-transform:lowercase;
     font-family:Bookman Old Style,Bookman,Palatino,times,times new roman,serif;
+    line-height:1.1em;
 }
 h1
 {
@@ -76,6 +82,12 @@ h1
 }
 img.Profile
 {
+    display:block;
+    width:100%;
+    max-width:200px;
+    height:auto;
+    margin:0 auto;
+
     border-radius:50%;
 }
 
@@ -125,6 +137,14 @@ img.Profile
     &.T5 .Column
     {
         width:20%;
+    }
+
+    @media(max-width: $ScreenLarge)
+    {
+        & .Column
+        {
+            width:100% !important;
+        }
     }
 }
 
@@ -243,7 +263,7 @@ body.Menu .Band.Nav
     }
 }
 
-/**** hubspot form **************************************/
+/**** home page hubspot form **************************************/
 .hbspt-form
 {
     max-width:400px;
@@ -297,31 +317,27 @@ body.Menu .Band.Nav
 /**** home page speakers section ************************/
 .Band.Speakers
 {
+    text-align:center;
 
-    .Pad
-    {
-        text-align:center;
-    }
     h2
     {
-        color:#111;
-        font-size:40px;
+        margin-top:0;
+        font-size:3rem;
+        color: $ColorDark;
     }
-    li
+    .Columns
     {
-        list-style-type:none;
+        max-width:800px;
         margin:0 auto;
     }
-    li img
-    {
-        display:inline;
-        max-width:200px;
-        border-radius:50%;
-        margin-bottom:1rem;
-    }
-    li strong
+    strong
     {
         display:block;
+        margin-top:0.5rem;
+    }
+    em
+    {
+        color:$ColorAccent1;
     }
     .Divider
     {
@@ -332,20 +348,13 @@ body.Menu .Band.Nav
         margin:1rem 0 1rem 0;
         background:#ddd;
     }
+    .Last .Divider
+    {
+        display:none;
+    }
     @media(min-width:$ScreenLarge)
     {
-        ul
-        {
-            overflow:hidden;
-            width:800px;
-            margin:0 auto;
-        }
-        li
-        {
-            width:33%;
-            float:left;
-        }
-        li .Divider
+        .Divider
         {
             position:absolute;
             top:0;
@@ -379,28 +388,41 @@ body.Menu .Band.Nav
 }
 
 /**** archive *******************************************/
-.Sessions
+.Overview
 {
     h3
     {
-        margin-bottom:5px;
+        margin:0;
+        color:#333;
+        font-size:1.8em;
+    }
+}
+.Sessions
+{
+    padding:0;
+    list-style-type: none;
+
+    li
+    {
+        border-top:1px solid #ddd;
+    }
+    h4
+    {
+        margin:0;
+    }
+    i
+    {
+        position: absolute;
+        left: -5rem;
+        top:0;
+
+        color: $ColorAccent1;
+        font-size: 7rem;
     }
     .Description
     {
         margin-top:10px;
         margin-bottom:10px;
-    }
-    ul
-    {
-        overflow:hidden;
-        padding:0;
-    }
-    li
-    {
-        border-top:1px solid #ddd;
-    }
-    .Description
-    {
         font-size:0.8rem;
     }
 }
@@ -435,6 +457,16 @@ dl.Blocks
     {
         background: $ColorAccent1;
         color:#fff;
+    }
+}
+dl.Blocks.Speakers
+{
+    dd span
+    {
+        display:block;
+        padding:0.5rem 0.5rem 0.5rem 0;
+        color: $ColorAccent1;
+        font-weight:bolder;
     }
 }
 

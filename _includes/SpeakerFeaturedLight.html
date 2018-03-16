@@ -1,4 +1,5 @@
 {% assign speakerObj = site.data.Speakers[include.speaker] %}
 <img class="Profile" src="{{site.baseurl}}{{speakerObj.photo}}" alt="{{speakerObj.name}}" title="{{speakerObj.name}}" />
-<div>{{speakerObj.name}}</div>
-<div>{{speakerObj.title}}</div>
+<strong>{{speakerObj.name}}</strong>
+<em>{{speakerObj.title}}</em>
+<div class="Divider"></div>

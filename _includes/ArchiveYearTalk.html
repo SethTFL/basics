@@ -1,0 +1,9 @@
+<div class="Pad">
+    <i class="icon-chevron-right"></i>
+    <h4>{{include.talk.title}}</h4>
+    {% include BlockSpeakers.html talk=include.talk %}
+    {% include BlockResources.html talk=include.talk %}
+    <div class="Description">
+        {{include.talk.description}}
+    </div>
+</div>

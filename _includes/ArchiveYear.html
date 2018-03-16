@@ -2,36 +2,31 @@
     <div class="Title">
         <i class="Icon icon-angle-down"></i>
         <i class="Icon icon-angle-up"></i>
-        <h2>{{include.year.year}} | {{include.year.title}}</h2>
+        <h2>{{include.year.year}}</h2>
     </div>
     <div class="Content">
         <div class="Height">
             <div class="Overview">
-                <ul>
-                    {% for speaker in include.year.speakers %}
-                    <li>
-                        {{speaker}}
-                    </li>
-                    {% endfor %}
-                </ul>
+                <h3>{{include.year.title}}</h3>
+                {% include BlockSpeakers.html talk=include.year %}
                 <div>
                     {{include.year.description}}
                 </div>
             </div>
-            <div class="Sessions Main">
-                <ul>
-                    {% for talk in include.year.sessions %}
-                    {% include ArchiveTalk.html talk=talk %}
-                    {% endfor %}
-                </ul>
-            </div>
-            <div class="Sessions Breakout">
-                <ul>
-                    {% for talk in include.year.breakouts %}
-                    {% include ArchiveTalk.html talk=talk %}
-                    {% endfor %}
-                </ul>
-            </div>
+            <ul class="Sessions Main">
+                {% for talk in include.year.sessions %}
+                <li>
+                    {% include ArchiveYearTalk.html talk=talk %}
+                </li>
+                {% endfor %}
+            </ul>
+            <ul class="Sessions Breakout">
+                {% for talk in include.year.breakouts %}
+                <li>
+                    {% include ArchiveYearTalk.html talk=talk %}
+                </li>
+                {% endfor %}
+            </ul>
         </div>
     </div>
 </div>
